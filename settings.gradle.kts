@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "NutriSwitch"
 include(":app")
 include(":core:model")
+include(":core:domain")
