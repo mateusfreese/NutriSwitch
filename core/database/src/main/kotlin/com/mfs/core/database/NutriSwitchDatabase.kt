@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        FoodDao::class
+        Food::class
     ],
     version = 1,
     exportSchema = false
