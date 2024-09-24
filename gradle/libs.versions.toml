@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "8.2.1"
+androidGradlePlugin = "8.6.1"
 androidxEspresso = "3.5.1"
 androidxAppCompat = "1.6.1"
 androidxCore = "1.12.0"
@@ -9,10 +9,12 @@ assertK = "0.26.1"
 googleMaterial = "1.11.0"
 jupiter = "5.9.3"
 junit4 = "4.13.2"
-kotlin = "1.9.20"
+kotlin = "2.0.20"
 kotlinxDatetime = "0.4.1"
 kotlinxCoroutines = "1.7.3"
 mockk = "1.13.7"
+room = "2.6.1"
+ksp = "2.0.20-1.0.25"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
@@ -29,6 +31,9 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 
 [bundles]
 test-core = [
@@ -41,6 +46,7 @@ test-core = [
 ]
 
 [plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-jupiter = { id = "de.mannodermaus.android-junit5", version.ref = "androidxJupiter" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
