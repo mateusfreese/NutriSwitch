@@ -22,7 +22,8 @@ abstract class NutriSwitchDatabase : RoomDatabase() {
                 applicationContext,
                 NutriSwitchDatabase::class.java,
                 "nutri_switch_db"
-            ).build()
+            ).createFromAsset("database/nutri_switch_database.db")
+                .build()
         }
     }
 }
