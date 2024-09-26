@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.google.material)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.navigation.fragment)
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit4)
