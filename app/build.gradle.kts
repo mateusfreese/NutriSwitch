@@ -38,6 +38,9 @@ android {
 }
 
 dependencies {
+    implementation(projects.feature.foodlist)
+    implementation(projects.feature.foodview)
+    implementation(projects.feature.foodnutrientconverter)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
