@@ -2,10 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/foodListFragment">
     
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.mfs.nutriswitch.HomeFragment"
         android:label="HomeFragment" />
+
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="com.mfs.foodlist.FoodListFragment"
+        android:label="FoodListFragment" />
+
 </navigation>
