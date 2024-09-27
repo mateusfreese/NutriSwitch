@@ -13,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FoodListFragment : Fragment() {
 
-    private lateinit var binding: FragmentFoodListBinding
+    private var _binding: FragmentFoodListBinding? = null
+    private val binding get() = _binding!!
 
     private val viewModel: FoodListViewModel by viewModels()
 
@@ -23,10 +24,10 @@ class FoodListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = FragmentFoodListBinding.inflate(layoutInflater)
-        .apply {
-            binding = this
-        }.root
+    ): View = FragmentFoodListBinding
+        .inflate(layoutInflater)
+        .also { _binding = it }
+        .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,5 +47,10 @@ class FoodListFragment : Fragment() {
         viewModel.foodList.observe(viewLifecycleOwner) {
             foodAdapter.submitList(it)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
