@@ -10,4 +10,12 @@ interface FoodDao {
 
     @Query("SELECT * FROM food WHERE name LIKE :name LIMIT 1")
     suspend fun findByName(name: String): FoodEntity
+
+    @Query("""
+        SELECT * 
+        FROM food
+        JOIN food_fts ON food_fts.name = food.name
+        WHERE food_fts MATCH :name
+    """)
+    suspend fun searchByName(name: String): List<FoodEntity>
 }

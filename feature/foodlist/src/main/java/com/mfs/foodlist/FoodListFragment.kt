@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mfs.foodlist.databinding.FragmentFoodListBinding
@@ -29,12 +30,15 @@ class FoodListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
+        setupView()
         setupObservables()
         viewModel.fetchFoods()
     }
 
-    private fun setupRecyclerView() = binding.apply {
+    private fun setupView() = binding.apply {
+        etSearch.doOnTextChanged { text, _, _, _ ->
+            viewModel.searchFoods(text.toString())
+        }
         rvFoodList.adapter = foodAdapter
     }
 

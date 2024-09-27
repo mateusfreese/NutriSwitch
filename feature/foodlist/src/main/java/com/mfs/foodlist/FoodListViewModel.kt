@@ -24,4 +24,14 @@ class FoodListViewModel @Inject constructor(
         }
     }
 
+    fun searchFoods(query: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (query.isBlank()) {
+                fetchFoods()
+            } else {
+                _foodList.postValue(foodRepository.searchFoods(query).map { it.name })
+            }
+        }
+    }
+
 }
