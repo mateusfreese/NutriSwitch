@@ -8,6 +8,7 @@
         android:id="@+id/actv_primary_food_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
         android:hint="@string/food_serach_hint" />
 
     <EditText
@@ -20,6 +21,7 @@
         android:id="@+id/actv_secondary_food_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
         android:hint="@string/food_serach_hint" />
 
     <EditText

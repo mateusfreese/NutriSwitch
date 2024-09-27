@@ -50,14 +50,17 @@ class FoodNutrientsConverterFragment: Fragment() {
     }
 
     private fun setupObservables() = foodNutrientsConverterViewModel.run {
-        foodList.observe(viewLifecycleOwner, ::handleFoodList)
-
-        selectedPrimaryFoodQuantity.observe(viewLifecycleOwner, ::handlePrimaryFoodQuantity)
-        selectedSecondaryFoodQuantity.observe(viewLifecycleOwner, ::handleSecondaryFoodQuantity)
-        mediatorLiveData.observe(viewLifecycleOwner) { }
+        uiState.observe(viewLifecycleOwner, ::handleUiState)
     }
 
-    private fun handleFoodList(foodList: List<Food>) = binding.run {
+    private fun handleUiState(uiState: FoodNutrientsUiState) {
+        handleFoodList(uiState.foodList)
+        handlePrimaryFoodQuantity(uiState.selectedPrimaryFoodQuantity)
+        handleSecondaryFoodQuantity(uiState.selectedSecondaryFoodQuantity)
+
+    }
+
+    private fun handleFoodList(foodList: List<Food>?) = binding.run {
         actvPrimaryFoodName.setup(foodList, foodNutrientsConverterViewModel::setPrimaryFood)
         actvSecondaryFoodName.setup(foodList, foodNutrientsConverterViewModel::setSecondaryFood)
     }
@@ -74,7 +77,9 @@ class FoodNutrientsConverterFragment: Fragment() {
         }
     }
 
-    private fun AutoCompleteTextView.setup(foodList: List<Food>, onItemSelected: (Food) -> Unit) {
+    private fun AutoCompleteTextView.setup(foodList: List<Food>?, onItemSelected: (Food) -> Unit) {
+        foodList ?: return
+
         val foodNamesList = foodList.map { it.name }
         val foodAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, foodNamesList)
         setAdapter(foodAdapter)
@@ -87,6 +92,8 @@ class FoodNutrientsConverterFragment: Fragment() {
         setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 setText(foodList.find { it.name == text.toString() }?.name)
+            } else {
+                showDropDown()
             }
         }
     }
