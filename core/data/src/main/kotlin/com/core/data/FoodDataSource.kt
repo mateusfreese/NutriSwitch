@@ -16,4 +16,8 @@ class FoodDataSource @Inject constructor(
     override suspend fun searchFoods(query: String): List<Food> {
         return foodDao.searchByName(query).map(FoodEntity::asModel)
     }
+
+    override suspend fun getFoodById(foodId: Int): Food {
+        return foodDao.getById(foodId).asModel()
+    }
 }

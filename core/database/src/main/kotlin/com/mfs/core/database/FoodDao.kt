@@ -18,4 +18,7 @@ interface FoodDao {
         WHERE food_fts MATCH :name
     """)
     suspend fun searchByName(name: String): List<FoodEntity>
+
+    @Query("SELECT * FROM food WHERE id = :foodId LIMIT 1")
+    suspend fun getById(foodId: Int): FoodEntity
 }

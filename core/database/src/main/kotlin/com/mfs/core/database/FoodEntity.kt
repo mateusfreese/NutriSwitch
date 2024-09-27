@@ -17,4 +17,11 @@ data class FoodEntity(
     @ColumnInfo(name = "fat") val fat: Double?,
 )
 
-fun FoodEntity.asModel() = Food(name = this.name)
+fun FoodEntity.asModel() = Food(
+    id = this.id,
+    name = this.name,
+    calories = this.calories,
+    carbohydrate = this.carbohydrate,
+    protein = this.protein,
+    fat = this.fat,
+)

@@ -1,0 +1,7 @@
+<resources>
+    <string name="name">Nome: %s</string>
+    <string name="calories">Calorias: %f</string>
+    <string name="carbohydrate">Carbohidratos: %f</string>
+    <string name="protein">Proteínas: %f</string>
+    <string name="fat">Gorduras %f</string>
+</resources>

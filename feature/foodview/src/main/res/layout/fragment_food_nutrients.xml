@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.core.feature.foodview.FoodNutrientsFragment">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/tv_calories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calories" />
+
+    <TextView
+        android:id="@+id/tv_carbohydrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/carbohydrate" />
+
+    <TextView
+        android:id="@+id/tv_protein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/protein" />
+
+    <TextView
+        android:id="@+id/tv_fat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fat" />
+
+</LinearLayout>

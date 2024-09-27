@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/foodListFragment">
+    app:startDestination="@id/foodNutrientsFragment">
     
     <fragment
         android:id="@+id/homeFragment"
@@ -13,5 +14,11 @@
         android:id="@+id/foodListFragment"
         android:name="com.mfs.foodlist.FoodListFragment"
         android:label="FoodListFragment" />
+
+    <fragment
+        android:id="@+id/foodNutrientsFragment"
+        android:name="com.core.feature.foodview.FoodNutrientsFragment"
+        android:label="fragment_food_nutrients"
+        tools:layout="@layout/fragment_food_nutrients" />
 
 </navigation>
