@@ -31,6 +31,4 @@ class FoodNutrientsViewModel @Inject constructor(
             _food.postValue(foodRepository.getFoodById(foodId))
         }
     }
-
-
 }

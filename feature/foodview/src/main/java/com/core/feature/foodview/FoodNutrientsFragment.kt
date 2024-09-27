@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.mfs.core.model.Food
 import com.mfs.feature.foodview.R
 import com.mfs.feature.foodview.databinding.FragmentFoodNutrientsBinding
@@ -17,8 +18,7 @@ class FoodNutrientsFragment : Fragment() {
     private var _binding: FragmentFoodNutrientsBinding? = null
     private val binding get() = _binding!!
 
-    //TODO("GET FOOD ID BY NAV ARGS")
-    private val foodId by lazy { 1 }
+    private val foodNavArgs: FoodNutrientsFragmentArgs by navArgs<FoodNutrientsFragmentArgs>()
 
     private val viewModel: FoodNutrientsViewModel by viewModels()
 
@@ -34,7 +34,7 @@ class FoodNutrientsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservables()
-        viewModel.fetchFood(foodId)
+        viewModel.fetchFood(foodNavArgs.foodId)
     }
 
     private fun setupObservables() {
