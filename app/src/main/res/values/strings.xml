@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NutriSwitch</string>
+    <string name="food_convert">Conversão de alimentos</string>
+    <string name="food_search">Procurar Alimentos</string>
 </resources>

@@ -32,6 +32,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -47,6 +50,8 @@ dependencies {
     implementation(libs.google.material)
     implementation(libs.hilt.android)
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.common.ktx)
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit4)
