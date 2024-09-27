@@ -2,9 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/food_nutrinets_converter_nav_graph">
 
     <include  app:graph="@navigation/food_view_nav_graph" />
+    <include  app:graph="@navigation/food_nutrinets_converter_nav_graph" />
 
     <fragment
         android:id="@+id/homeFragment"
