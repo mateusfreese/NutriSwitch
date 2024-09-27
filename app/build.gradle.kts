@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.navigation.common.ktx)
+    implementation(libs.androidx.navigation.runtime)
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit4)

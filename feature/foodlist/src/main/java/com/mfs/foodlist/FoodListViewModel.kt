@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.core.data.FoodRepository
+import com.mfs.core.model.Food
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,12 +16,12 @@ class FoodListViewModel @Inject constructor(
     private val foodRepository: FoodRepository
 ): ViewModel() {
 
-    private val _foodList = MutableLiveData<List<String>>()
-    val foodList: LiveData<List<String>> = _foodList
+    private val _foodList = MutableLiveData<List<FoodUi>>()
+    val foodList: LiveData<List<FoodUi>> = _foodList
 
     fun fetchFoods() {
         viewModelScope.launch(Dispatchers.IO) {
-            _foodList.postValue(foodRepository.getAllFoods().map { it.name })
+            _foodList.postValue(foodRepository.getAllFoods().map(Food::toUi))
         }
     }
 
@@ -29,7 +30,7 @@ class FoodListViewModel @Inject constructor(
             if (query.isBlank()) {
                 fetchFoods()
             } else {
-                _foodList.postValue(foodRepository.searchFoods(query).map { it.name })
+                _foodList.postValue(foodRepository.searchFoods(query).map(Food::toUi))
             }
         }
     }

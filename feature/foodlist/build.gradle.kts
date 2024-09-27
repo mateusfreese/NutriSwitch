@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.google.material)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment)
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit4)

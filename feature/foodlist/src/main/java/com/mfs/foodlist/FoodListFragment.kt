@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.mfs.foodlist.databinding.FragmentFoodListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,6 +49,11 @@ class FoodListFragment : Fragment() {
     private fun setupObservables() {
         viewModel.foodList.observe(viewLifecycleOwner) {
             foodAdapter.submitList(it)
+            foodAdapter.onItemClicked = { food ->
+                findNavController().navigate(R.id.food_detail, bundleOf(
+                    "foodId" to food.id
+                ))
+            }
         }
     }
 

@@ -5,24 +5,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.mfs.core.model.Food
 import com.mfs.foodlist.databinding.ItemFoodBinding
 
-class FoodAdapter : ListAdapter<String, FoodAdapter.FoodViewHolder>(FoodDiffCallback) {
+class FoodAdapter(
+    var onItemClicked: (FoodUi) -> Unit = {}
+): ListAdapter<FoodUi, FoodAdapter.FoodViewHolder>(FoodDiffCallback) {
 
-    private object FoodDiffCallback: DiffUtil.ItemCallback<String>() {
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+    private object FoodDiffCallback: DiffUtil.ItemCallback<FoodUi>() {
+        override fun areItemsTheSame(oldItem: FoodUi, newItem: FoodUi): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        override fun areContentsTheSame(oldItem: FoodUi, newItem: FoodUi): Boolean {
             return oldItem == newItem
         }
 
     }
 
     inner class FoodViewHolder(private val foodView: ItemFoodBinding) : ViewHolder(foodView.root) {
-        fun bind(foodName: String) {
-            foodView.tvFoodName.text = foodName
+        fun bind(foodUi: FoodUi) {
+            foodView.tvFoodName.text = foodUi.name
+            foodView.root.setOnClickListener {
+                onItemClicked(foodUi)
+            }
         }
     }
 
