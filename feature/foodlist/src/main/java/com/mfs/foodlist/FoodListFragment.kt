@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mfs.foodlist.databinding.FragmentFoodListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FoodListFragment : Fragment() {
 
     private lateinit var binding: FragmentFoodListBinding
@@ -38,7 +40,7 @@ class FoodListFragment : Fragment() {
 
     private fun setupObservables() {
         viewModel.foodList.observe(viewLifecycleOwner) {
-            foodAdapter.updateList(it)
+            foodAdapter.submitList(it)
         }
     }
 }

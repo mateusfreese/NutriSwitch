@@ -2,16 +2,22 @@ package com.mfs.foodlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.mfs.foodlist.databinding.ItemFoodBinding
 
-class FoodAdapter(
-    private var foodList: List<String> = listOf()
-) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+class FoodAdapter : ListAdapter<String, FoodAdapter.FoodViewHolder>(FoodDiffCallback) {
 
-    fun updateList(newFoodList: List<String>) {
-        this.foodList = newFoodList
+    private object FoodDiffCallback: DiffUtil.ItemCallback<String>() {
+        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+            return oldItem == newItem
+        }
+
     }
 
     inner class FoodViewHolder(private val foodView: ItemFoodBinding) : ViewHolder(foodView.root) {
@@ -30,9 +36,7 @@ class FoodAdapter(
         )
     }
 
-    override fun getItemCount(): Int = foodList.size
-
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-        holder.bind(foodList[position])
+        holder.bind(getItem(position))
     }
 }

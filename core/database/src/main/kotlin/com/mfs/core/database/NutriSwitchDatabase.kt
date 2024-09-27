@@ -7,14 +7,14 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        Food::class
+        FoodEntity::class
     ],
     version = 1,
     exportSchema = false
 )
 abstract class NutriSwitchDatabase : RoomDatabase() {
 
-    abstract val foodDao: FoodDao
+    abstract fun getFoodDao(): FoodDao
 
     companion object {
         fun build(applicationContext: Context): NutriSwitchDatabase {
