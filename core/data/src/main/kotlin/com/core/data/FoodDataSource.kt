@@ -3,6 +3,7 @@ package com.core.data
 import com.mfs.core.database.FoodDao
 import com.mfs.core.database.FoodEntity
 import com.mfs.core.database.asModel
+import com.mfs.core.domain.repository.FoodRepository
 import com.mfs.core.model.Food
 import javax.inject.Inject
 

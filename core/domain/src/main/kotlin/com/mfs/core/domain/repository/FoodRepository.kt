@@ -1,4 +1,4 @@
-package com.core.data
+package com.mfs.core.domain.repository
 
 import com.mfs.core.model.Food
 

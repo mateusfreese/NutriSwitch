@@ -1,5 +1,6 @@
 package com.core.data
 
+import com.mfs.core.domain.repository.FoodRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

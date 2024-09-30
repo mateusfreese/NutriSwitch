@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.core.data.FoodRepository
+import com.mfs.core.domain.repository.FoodRepository
 import com.mfs.core.model.Food
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FoodListViewModel @Inject constructor(
-    private val foodRepository: FoodRepository
+    private val foodRepository: com.mfs.core.domain.repository.FoodRepository
 ): ViewModel() {
 
     private val _foodList = MutableLiveData<List<FoodUi>>()
