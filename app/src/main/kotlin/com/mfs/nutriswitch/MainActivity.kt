@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.NavigationUiSaveStateControl
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.mfs.nutriswitch.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,8 +36,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @OptIn(NavigationUiSaveStateControl::class)
     private fun setupNavigation() {
-        binding.bottomNavigation.setupWithNavController(navController)
+        setupWithNavController(binding.bottomNavigation, navController, false)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
