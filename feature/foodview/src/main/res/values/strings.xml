@@ -1,8 +1,13 @@
 <resources>
     <string name="name">Nome: %s</string>
-    <string name="calories">Calorias: %f</string>
-    <string name="carbohydrate">Carbohidratos: %f</string>
-    <string name="protein">Proteínas: %f</string>
-    <string name="fat">Gorduras %f</string>
+    <string name="calories">Calorias:</string>
+    <string name="carbohydrate">Carbohidratos:</string>
+    <string name="protein">Proteínas:</string>
+    <string name="fat">Gorduras:</string>
+
+    <string name="amount_kcal">%.2f Kcal</string>
+    <string name="amount_grams">%.2f g</string>
+
     <string name="food_details">Detalhes do Alimento</string>
+    <string name="macronutrientes">Macronutrientes</string>
 </resources>

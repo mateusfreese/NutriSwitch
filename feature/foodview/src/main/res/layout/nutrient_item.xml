@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:toolds="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextAppearance.Material3.BodyLarge"
+        android:id="@+id/tv_nutrient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/calories" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_nutrient_value"
+        style="@style/TextAppearance.Material3.BodyLarge"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        tools:text="@string/amount_grams" />
+
+</LinearLayout>
