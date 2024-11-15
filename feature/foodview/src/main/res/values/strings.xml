@@ -4,4 +4,5 @@
     <string name="carbohydrate">Carbohidratos: %f</string>
     <string name="protein">Proteínas: %f</string>
     <string name="fat">Gorduras %f</string>
+    <string name="food_details">Detalhes do Alimento</string>
 </resources>

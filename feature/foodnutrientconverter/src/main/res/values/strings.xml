@@ -1,3 +1,4 @@
 <resources>
     <string name="food_serach_hint">Arroz...</string>
+    <string name="food_convert">Converter Alimento</string>
 </resources>

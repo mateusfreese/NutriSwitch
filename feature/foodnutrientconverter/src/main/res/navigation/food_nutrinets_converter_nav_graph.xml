@@ -7,5 +7,5 @@
     <fragment
         android:id="@+id/foodNutrientsConverterFragment"
         android:name="com.mfs.feature.foodconverter.FoodNutrientsConverterFragment"
-        android:label="FoodNutrientsConverterFragment" />
+        android:label="@string/food_convert" />
 </navigation>

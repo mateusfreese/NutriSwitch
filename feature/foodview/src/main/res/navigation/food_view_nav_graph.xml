@@ -8,12 +8,13 @@
     <fragment
         android:id="@+id/homeFragmentTest"
         android:name="com.core.feature.foodview.FoodNutrientsFragment"
-        android:label="fragment_food_nutrients"
+        android:label="@string/food_details"
         tools:layout="@layout/fragment_food_nutrients" >
 
         <argument
             android:name="foodId"
             app:argType="integer"
-            app:nullable="false" />
+            app:nullable="false"
+            android:defaultValue="-1" />
     </fragment>
 </navigation>
