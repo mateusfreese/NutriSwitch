@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mfs.foodlist"
+    namespace = "com.mfs.feature.foodlist"
     compileSdk = 34
 
     defaultConfig {

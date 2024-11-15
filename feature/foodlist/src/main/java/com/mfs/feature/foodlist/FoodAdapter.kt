@@ -1,12 +1,11 @@
-package com.mfs.foodlist
+package com.mfs.feature.foodlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.mfs.core.model.Food
-import com.mfs.foodlist.databinding.ItemFoodBinding
+import com.mfs.feature.foodlist.databinding.ItemFoodBinding
 
 class FoodAdapter(
     var onItemClicked: (FoodUi) -> Unit = {}

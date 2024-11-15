@@ -1,4 +1,4 @@
-package com.mfs.foodlist
+package com.mfs.feature.foodlist
 
 import com.mfs.core.model.Food
 

@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/foodListFragment"
-        android:name="com.mfs.foodlist.FoodListFragment"
+        android:name="com.mfs.feature.foodlist.FoodListFragment"
         android:label="FoodListFragment" >
         <action
             android:id="@id/food_detail"

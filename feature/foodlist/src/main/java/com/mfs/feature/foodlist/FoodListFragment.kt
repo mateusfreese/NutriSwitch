@@ -1,4 +1,4 @@
-package com.mfs.foodlist
+package com.mfs.feature.foodlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,8 @@ import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.mfs.foodlist.databinding.FragmentFoodListBinding
+import com.mfs.feature.foodlist.databinding.FragmentFoodListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,7 +49,8 @@ class FoodListFragment : Fragment() {
         viewModel.foodList.observe(viewLifecycleOwner) {
             foodAdapter.submitList(it)
             foodAdapter.onItemClicked = { food ->
-                findNavController().navigate(R.id.food_detail, bundleOf(
+                findNavController().navigate(
+                    R.id.food_detail, bundleOf(
                     "foodId" to food.id
                 ))
             }
