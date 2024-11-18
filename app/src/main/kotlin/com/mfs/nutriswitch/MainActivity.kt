@@ -2,6 +2,10 @@ package com.mfs.nutriswitch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsAnimationCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isGone
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -31,16 +35,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         setupNavigation()
     }
-
 
     @OptIn(NavigationUiSaveStateControl::class)
     private fun setupNavigation() {
         setupWithNavController(binding.bottomNavigation, navController, false)
+        handleBottomNavigationVisibility()
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun handleBottomNavigationVisibility() {
+        ViewCompat.setWindowInsetsAnimationCallback(
+            binding.root,
+            object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_STOP) {
+
+                override fun onProgress(
+                    insets: WindowInsetsCompat,
+                    runningAnimations: MutableList<WindowInsetsAnimationCompat>
+                ): WindowInsetsCompat {
+                    runningAnimations.find {
+                        it.typeMask and WindowInsetsCompat.Type.ime() != 0
+                    } ?: return insets
+
+                    val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
+
+                    binding.bottomNavigation.isGone = imeVisible
+
+                    return insets
+                }
+            }
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {
