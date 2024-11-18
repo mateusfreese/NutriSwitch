@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mfs.core.model.Food
 import com.mfs.feature.foodview.R
@@ -35,15 +36,54 @@ class FoodNutrientsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupView()
         setupObservables()
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.fetchFood(foodNavArgs.foodId)
+    }
+
+    private fun setupView() = with(binding) {
+        btnSelectFood.setOnClickListener {
+            findNavController().navigate(R.id.food_list)
+        }
     }
 
     private fun setupObservables() {
         viewModel.food.observe(viewLifecycleOwner, ::handleFood)
     }
 
-    private fun handleFood(food: Food) = binding.apply {
+    private fun handleFood(foodNutrientsUI: FoodNutrientsUI) = binding.apply {
+        when (foodNutrientsUI) {
+            is FoodNutrientsUI.Loading -> showLoadingContainer()
+            is FoodNutrientsUI.SelectFood -> showSelectFoodContainer()
+            is FoodNutrientsUI.ShowFood -> showFood(foodNutrientsUI.food)
+        }
+    }
+
+    private fun showLoadingContainer() = with(binding) {
+        llLoadingContainer.visibility = View.VISIBLE
+    }
+
+    private fun showSelectFoodContainer() = with(binding) {
+        llLoadingContainer.visibility = View.GONE
+        llFoodContainer.visibility = View.GONE
+
+        llSelectFood.visibility = View.VISIBLE
+    }
+
+    private fun showFoodContainer() = with(binding) {
+        llLoadingContainer.visibility = View.GONE
+        llSelectFood.visibility = View.GONE
+
+        llFoodContainer.visibility = View.VISIBLE
+    }
+
+    private fun showFood(food: Food) = with(binding) {
+        showFoodContainer()
+
         val nutrients = listOf(
             Triple(R.string.calories, food.calories, R.string.amount_kcal),
             Triple(R.string.protein, food.protein, R.string.amount_grams),

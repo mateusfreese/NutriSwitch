@@ -16,4 +16,8 @@
             app:argType="integer"
             app:nullable="false" />
     </action>
+
+    <action
+        android:id="@id/food_list"
+        app:destination="@id/food_list_nav_graph" />
 </navigation>

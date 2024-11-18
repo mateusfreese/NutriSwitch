@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mfs.core.model.Food
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -17,8 +16,8 @@ class FoodNutrientsViewModel @Inject constructor(
     private val foodRepository: com.mfs.core.domain.repository.FoodRepository
 ): ViewModel() {
 
-    private val _food = MutableLiveData<Food>()
-    val food: LiveData<Food> = _food
+    private val _food = MutableLiveData<FoodNutrientsUI>(FoodNutrientsUI.SelectFood)
+    val food: LiveData<FoodNutrientsUI> = _food
 
     fun fetchFood(foodId: Int) {
         val foodExceptionHandler = CoroutineExceptionHandler { _, throwable ->
@@ -27,7 +26,13 @@ class FoodNutrientsViewModel @Inject constructor(
         }
 
         viewModelScope.launch(Dispatchers.IO + foodExceptionHandler) {
-            _food.postValue(foodRepository.getFoodById(foodId))
+            if (foodId == -1) {
+                _food.postValue(FoodNutrientsUI.SelectFood)
+            } else {
+                _food.postValue(FoodNutrientsUI.Loading)
+                val food = foodRepository.getFoodById(foodId)
+                _food.postValue(FoodNutrientsUI.ShowFood(food))
+            }
         }
     }
 }
