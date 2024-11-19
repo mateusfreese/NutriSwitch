@@ -1,3 +1,4 @@
+ <img height="192" src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" width="192"/>
 
 NutriSwitch App
 ==================
