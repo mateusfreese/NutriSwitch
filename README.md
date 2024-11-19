@@ -12,5 +12,5 @@ equivalent kcal.
 
 # Screenshots
 
-| ![](/docs/images/screenshot-convert_screen.png) | ![](/docs/images/screenshot-list_screen.png) | ![](/docs/images/screenshot-detail_screen.png) |
-|-------------------------------------------------|----------------------------------------------|------------------------------------------------|
+| ![](/docs/images/screenshot-list_screen.png) | ![](/docs/images/screenshot-convert_screen.png) | ![](/docs/images/screenshot-detail_screen.png) |
+|----------------------------------------------|-------------------------------------------------|------------------------------------------------|
