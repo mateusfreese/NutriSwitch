@@ -15,7 +15,10 @@ class FoodDataSource @Inject constructor(
     }
 
     override suspend fun searchFoods(query: String): List<Food> {
-        return foodDao.searchByName(query).map(FoodEntity::asModel)
+        val formattedQuery = query.split(" ")
+            .filter(String::isNotEmpty)
+            .joinToString(" ") { "\"$it*\"" }
+        return foodDao.searchByQuery(formattedQuery).map(FoodEntity::asModel)
     }
 
     override suspend fun getFoodById(foodId: Int): Food {

@@ -15,9 +15,9 @@ interface FoodDao {
         SELECT * 
         FROM food
         JOIN food_fts ON food_fts.name = food.name
-        WHERE food_fts MATCH :name
+        WHERE food_fts MATCH :query
     """)
-    suspend fun searchByName(name: String): List<FoodEntity>
+    suspend fun searchByQuery(query: String): List<FoodEntity>
 
     @Query("SELECT * FROM food WHERE id = :foodId LIMIT 1")
     suspend fun getById(foodId: Int): FoodEntity
