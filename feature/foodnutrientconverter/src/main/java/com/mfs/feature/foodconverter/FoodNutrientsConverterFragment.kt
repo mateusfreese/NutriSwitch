@@ -93,7 +93,11 @@ class FoodNutrientsConverterFragment: Fragment() {
             if (!hasFocus) {
                 setText(foodList.find { it.name == text.toString() }?.name)
             } else {
-                showDropDown()
+                dismissDropDown()
+                requestFocus()
+                postDelayed({
+                    showDropDown()
+                }, 500)
             }
         }
     }

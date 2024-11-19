@@ -1,3 +1,7 @@
 <resources>
-    <string name="food_serach_hint">Arroz...</string>
+    <string name="food_hint">Alimento</string>
+    <string name="food_amount_hint">Quantidade</string>
+    <string name="food_convert">Converter Alimento</string>
+    <string name="food_target">Alimento Alvo</string>
+    <string name="food_source">Alimento Referência</string>
 </resources>

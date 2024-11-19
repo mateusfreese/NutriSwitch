@@ -34,15 +34,26 @@ class FoodListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
+        setupSearch()
         setupObservables()
         viewModel.fetchFoods()
     }
 
     private fun setupView() = binding.apply {
-        etSearch.doOnTextChanged { text, _, _, _ ->
+        rvFoodList.adapter = foodAdapter
+        rvFoodListSearch.adapter = foodAdapter
+    }
+
+    private fun setupSearch() = with(binding) {
+        searchView.editText.doOnTextChanged { text, _, _, _ ->
             viewModel.searchFoods(text.toString())
         }
-        rvFoodList.adapter = foodAdapter
+        searchView.editText.setOnEditorActionListener { textView, _, _ ->
+            searchView.hide()
+            searchBar.setText(textView.text)
+
+            return@setOnEditorActionListener true
+        }
     }
 
     private fun setupObservables() {

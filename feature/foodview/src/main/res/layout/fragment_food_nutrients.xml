@@ -3,37 +3,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="12dp"
     tools:context="com.core.feature.foodview.FoodNutrientsFragment">
 
-
-    <TextView
-        android:id="@+id/tv_name"
+    <LinearLayout
+        android:id="@+id/ll_loading_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/name" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_calories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/calories" />
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="true" />
 
-    <TextView
-        android:id="@+id/tv_carbohydrate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/carbohydrate" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_protein"
+    <LinearLayout
+        android:id="@+id/ll_select_food"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/protein" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_fat"
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.BodyLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_food_selected" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_select_food"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_food" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_food_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fat" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:gravity="center"
+            tools:text="Food Name" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.Material3.HeadlineLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="@string/macronutrientes" />
+
+                <ListView
+                    android:id="@+id/lv_macronutrients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/nutrient_item" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
 </LinearLayout>

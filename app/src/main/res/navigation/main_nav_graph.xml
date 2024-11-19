@@ -2,22 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/foodListFragment">
+    app:startDestination="@+id/food_list_nav_graph">
 
     <include  app:graph="@navigation/food_view_nav_graph" />
     <include  app:graph="@navigation/food_nutrinets_converter_nav_graph" />
+    <include  app:graph="@navigation/food_list_nav_graph" />
 
-    <fragment
-        android:id="@+id/foodListFragment"
-        android:name="com.mfs.feature.foodlist.FoodListFragment"
-        android:label="FoodListFragment" >
-        <action
-            android:id="@id/food_detail"
-            app:destination="@id/food_view_nav_graph" >
-            <argument
-                android:name="foodId"
-                app:argType="integer"
-                app:nullable="false" />
-        </action>
-    </fragment>
+    <action
+        android:id="@id/food_detail"
+        app:destination="@id/food_view_nav_graph" >
+        <argument
+            android:name="foodId"
+            app:argType="integer"
+            app:nullable="false" />
+    </action>
+
+    <action
+        android:id="@+id/food_list"
+        app:destination="@id/food_list_nav_graph" />
 </navigation>
