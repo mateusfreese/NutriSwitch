@@ -2,4 +2,5 @@
 <resources>
     <string name="food_search_hint">Arroz…</string>
     <string name="food_list">Lista de Alimentos</string>
+    <string name="search_by_food_name">Procure pelo nome do alimento</string>
 </resources>

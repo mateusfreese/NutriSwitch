@@ -10,4 +10,6 @@
 
     <string name="food_details">Detalhes do Alimento</string>
     <string name="macronutrientes">Macronutrientes</string>
+    <string name="no_food_selected">Nenhum alimento selecionado</string>
+    <string name="select_food">Selecionar Alimento</string>
 </resources>

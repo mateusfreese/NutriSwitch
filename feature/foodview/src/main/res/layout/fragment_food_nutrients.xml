@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Nenhum alimento selecionado" />
+            android:text="@string/no_food_selected" />
 
         <Space
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selecionar Alimento" />
+            android:text="@string/select_food" />
 
     </LinearLayout>
 

@@ -32,14 +32,14 @@
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Procure pelo nome do alimento" />
+            android:hint="@string/search_by_food_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.search.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Arroz..."
+        android:hint="@string/food_search_hint"
         app:layout_behavior="com.google.android.material.search.SearchView$Behavior"
         app:layout_anchor="@id/search_bar" >
 
